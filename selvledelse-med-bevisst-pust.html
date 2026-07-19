@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selvledelse med bevisst pust - uChange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== FONTER ===== */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* ===== FARGER ===== */
+        :root {
+            --deep-blue: #0F3D54;
+            --brown-gold: #D4A06F;
+            --deep-red: #990000;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== LOGO SECTION ===== */
+        .logo-section {
+            background-color: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .logo-section img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background-color: var(--light-gray);
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero h2 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--brown-gold);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--deep-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta-secondary {
+            display: inline-block;
+            background-color: var(--brown-gold);
+            color: var(--deep-blue);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta-secondary:hover {
+            background-color: var(--deep-red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .intro {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        /* ===== HIGHLIGHT SECTION ===== */
+        .highlight-section {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--deep-blue) 100%);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+
+        .highlight-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .highlight-text {
+            color: white;
+        }
+
+        .highlight-text h3 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .highlight-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .highlight-image {
+            text-align: center;
+        }
+
+        .highlight-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== COURSE DESCRIPTION ===== */
+        .course-description {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .course-description h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .course-description p {
+            font-size: 17px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== LEARNING POINTS ===== */
+        .learning-points {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .learning-points h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .learning-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .learning-card .icon {
+            font-size: 36px;
+            color: var(--brown-gold);
+            margin-bottom: 15px;
+        }
+
+        .learning-card h3 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--deep-blue);
+            margin-bottom: 12px;
+        }
+
+        .learning-card p {
+            color: var(--dark-gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ===== PRACTICAL INFO ===== */
+        .practical-info {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .practical-info h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .practical-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-column {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .info-column h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            color: var(--deep-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--brown-gold);
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .info-item .label {
+            font-weight: 600;
+            color: var(--deep-blue);
+            min-width: 120px;
+        }
+
+        .info-item .value {
+            color: var(--dark-gray);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--deep-blue) 100%);
+            padding: 80px 0;
+        }
+
+        .testimonials h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: white;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: white;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--brown-gold);
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 400;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* ===== RESULTS SECTION ===== */
+        .results {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .results h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .results-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .results-content p {
+            font-size: 17px;
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+        }
+
+        /* ===== INSTRUCTOR SECTION ===== */
+        .instructor {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .instructor h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .instructor-image {
+            text-align: center;
+        }
+
+        .instructor-image img {
+            max-width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .instructor-bio h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            color: var(--deep-blue);
+            margin-bottom: 20px;
+        }
+
+        .instructor-bio p {
+            color: var(--dark-gray);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* ===== CONTACT INFO ===== */
+        .contact-info {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .contact-info h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--deep-blue);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            font-size: 17px;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .contact-item h4 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: var(--deep-blue);
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            color: var(--dark-gray);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .contact-item a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: var(--deep-red);
+            text-decoration: underline;
+        }
+
+        /* ===== CLOSING SECTION ===== */
+        .closing {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--deep-red) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .closing h2 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .closing p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .highlight-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .highlight-image {
+                order: -1;
+            }
+
+            .practical-content {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .instructor-image {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .course-description h2,
+            .learning-points h2,
+            .practical-info h2,
+            .testimonials h2,
+            .results h2,
+            .instructor h2,
+            .contact-info h2,
+            .closing h2 {
+                font-size: 26px;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-cta, .btn-cta-secondary {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .course-description h2,
+            .learning-points h2,
+            .practical-info h2,
+            .testimonials h2,
+            .results h2,
+            .instructor h2,
+            .contact-info h2,
+            .closing h2 {
+                font-size: 22px;
+            }
+
+            .course-description p,
+            .intro p,
+            .results-content p,
+            .instructor-bio p {
+                font-size: 15px;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Section -->
+    <section class="logo-section">
+        <div class="container">
+            <img src="LOGO_GH-sign_uChange_slogan_transp.png" alt="uChange Logo">
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Selvledelse med bevisst pust</h1>
+            <h2>Lær å lede deg selv med ro og klarhet</h2>
+            <a href="#" class="btn-cta">Meld på nå</a>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <p>Dette kurset gir deg verktøyene du trenger for å håndtere stress, øke fokus og ta bedre beslutninger i en travel hverdag. Gjennom bevisst pustearbeid og selvledelsesteknikker vil du oppleve større indre ro og bedre kontroll over dine tanker og handlinger.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-content">
+                <div class="highlight-text">
+                    <h3>Finn indre balanse i en hektisk verden</h3>
+                    <p>I dette kurset vil du lære hvordan bevisst pust kan transformere din måte å håndtere utfordringer på. Enten du sliter med stress, manglende fokus eller vanskelige beslutninger, vil disse teknikkene gi deg verktøyene du trenger for å ta kontroll.</p>
+                    <a href="#" class="btn-cta-secondary">Les mer</a>
+                </div>
+                <div class="highlight-image">
+                    <!-- Plass for bilde - erstatt med faktisk bilde -->
+                    <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#D4A06F" opacity="0.4"/>
+                        <circle cx="200" cy="150" r="80" fill="#0F3D54" opacity="0.6"/>
+                        <text x="200" y="160" font-family="Montserrat" font-size="20" fill="white" text-anchor="middle">Bilde</text>
+                        <text x="200" y="185" font-family="Montserrat" font-size="14" fill="white" text-anchor="middle">plassholder</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Description -->
+    <section class="course-description">
+        <div class="container">
+            <h2>Om kurset</h2>
+            <p>Selvledelse med bevisst pust er et praktisk kurs som kombinerer moderne nevrovitenskap med gamle pusteteknikker. Du vil lære hvordan pustemønstre påvirker hjernen, kroppen og dine emosjoner, og hvordan du kan bruke dette til å forbedre din daglige ytelse og velvære.</p>
+            <p>Kurset er designet for alle som ønsker å ta større ansvar for sitt eget velvære og sin personlige utvikling. Uansett om du er leder, ansatt eller student, vil du dra nytte av disse teknikkene.</p>
+        </div>
+    </section>
+
+    <!-- Learning Points -->
+    <section class="learning-points">
+        <div class="container">
+            <h2>Dette vil du lære</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="icon">🧠</div>
+                    <h3>Forstå pustens kraft</h3>
+                    <p>Lær hvordan bevisst pust påvirker nervesystemet og kan redusere stress og angst øyeblikkelig.</p>
+                </div>
+                <div class="learning-card">
+                    <div class="icon">🎯</div>
+                    <h3>Øk fokus og konsentrasjon</h3>
+                    <p>Oppdag pusteteknikker som hjelper deg å holde fokus i lengre perioder og unngå distraksjoner.</p>
+                </div>
+                <div class="learning-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Emosjonell balanse</h3>
+                    <p>Lær å regulere dine emosjoner gjennom bevisst pust, slik at du kan respondere i stedet for å reagere.</p>
+                </div>
+                <div class="learning-card">
+                    <div class="icon">💡</div>
+                    <h3>Bedre beslutningstaking</h3>
+                    <p>Få tilgang til klarere tenkning og bedre dømmekraft gjennom pusteteknikker som roer sinnet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Button -->
+    <section style="padding: 40px 0; text-align: center; background-color: var(--light-gray);">
+        <div class="container">
+            <a href="#" class="btn-cta">Meld på kurset nå</a>
+        </div>
+    </section>
+
+    <!-- Practical Info -->
+    <section class="practical-info">
+        <div class="container">
+            <h2>Praktisk informasjon</h2>
+            <div class="practical-content">
+                <div class="info-column">
+                    <h3>Kursdetaljer</h3>
+                    <div class="info-item">
+                        <span class="label">Varighet:</span>
+                        <span class="value">8 uker</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Tid:</span>
+                        <span class="value">Tirsdager 18:00-20:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Sted:</span>
+                        <span class="value">Online / Oslo</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Pris:</span>
+                        <span class="value">Kr 4.900,-</span>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <h3>Målgruppe</h3>
+                    <div class="info-item">
+                        <span class="label">For:</span>
+                        <span class="value">Alle som ønsker bedre selvledelse</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Nivå:</span>
+                        <span class="value">Ingen forkunnskaper nødvendig</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Materiell:</span>
+                        <span class="value">Alt inkludert</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Sertifisering:</span>
+                        <span class="value">Kursbevis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Hva sier tidligere deltakere?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Dette kurset har forandret måten jeg håndterer stress på. Jeg bruker pusteteknikkene daglig, og merker en tydelig forskjell i min evne til å holde roen i utfordrende situasjoner."</p>
+                    <div class="testimonial-author">Marte Jensen
+                        <span class="testimonial-role">Prosjektleder</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Jeg var skeptisk i begynnelsen, men etter bare noen få økter merket jeg effekten. Pusteteknikkene har gitt meg bedre søvn, mer energi og klarere tanker. Anbefales på det varmeste!"</p>
+                    <div class="testimonial-author">Ole Pettersen
+                        <span class="testimonial-role">IT-konsulent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Description -->
+    <section class="results">
+        <div class="container">
+            <div class="results-content">
+                <h2>Hvorfor dette kurset?</h2>
+                <p>I en verden full av distraksjoner og konstant forandring, er evnen til å lede seg selv blitt en av de viktigste ferdighetene vi kan besitte. Dette kurset gir deg ikke bare teoretisk kunnskap, men praktiske verktøy du kan bruke med en gang.</p>
+                <p>Gjennom en kombinasjon av undervisning, øvelser og refleksjon vil du utvikle en dypere forståelse av hvordan pust, tanker og handlinger henger sammen. Du vil forlate kurset med en personlig verktøykasse full av teknikker du kan bruke i din daglige liv.</p>
+                <p>Investeringen i dette kurset er en investering i deg selv - en investering som vil gi avkastning i form av bedre helse, økt produktivitet og større livskvalitet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section style="background-color: var(--light-gray); padding: 80px 0;">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); font-size: 32px; color: var(--deep-blue); margin-bottom: 50px; text-align: center;">Resultater som betyr noe</h2>
+            <div class="results-content">
+                <p>Deltakere på dette kurset rapporterer om:</p>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto 30px; padding-left: 20px;">
+                    <li style="margin-bottom: 10px; color: var(--dark-gray); font-size: 16px;">Redusert stressnivå med 40-60%</li>
+                    <li style="margin-bottom: 10px; color: var(--dark-gray); font-size: 16px;">Bedret søvnkvalitet</li>
+                    <li style="margin-bottom: 10px; color: var(--dark-gray); font-size: 16px;">Økt evne til å håndtere utfordrende situasjoner</li>
+                    <li style="margin-bottom: 10px; color: var(--dark-gray); font-size: 16px;">Større emosjonell stabilitet</li>
+                    <li style="margin-bottom: 10px; color: var(--dark-gray); font-size: 16px;">Bedre konsentrasjon og produktivitet</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Button -->
+    <section style="padding: 40px 0; text-align: center; background-color: white;">
+        <div class="container">
+            <a href="#" class="btn-cta">Sikre din plass nå</a>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="closing">
+        <div class="container">
+            <h2>Klar for å ta kontroll?</h2>
+            <p>Dette er din sjanse til å investere i deg selv og din fremtid. Ta det første skrittet mot større indre ro, bedre helse og økt velvære. Vi gleder oss til å ta imot deg på kurset!</p>
+            <a href="#" class="btn-cta-secondary">Meld på nå</a>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor">
+        <div class="container">
+            <h2>Om kursholderen</h2>
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <!-- Plass for portrettbilde -->
+                    <svg width="250" height="300" viewBox="0 0 250 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="250" height="300" fill="#D4A06F" opacity="0.5" rx="12"/>
+                        <circle cx="125" cy="100" r="40" fill="#0F3D54" opacity="0.7"/>
+                        <rect x="85" y="140" width="80" height="100" fill="#0F3D54" opacity="0.7" rx="5"/>
+                        <text x="125" y="260" font-family="Montserrat" font-size="14" fill="#0F3D54" text-anchor="middle">Portrett</text>
+                    </svg>
+                </div>
+                <div class="instructor-bio">
+                    <h3>Anna Larsen</h3>
+                    <p>Anna er en erfaren kursholder med mer enn 15 års erfaring innen selvutvikling, pustetrening og mindfulness. Hun har hjulpet hundrevis av mennesker med å finne indre ro og bedre selvledelse gjennom sine kurs og workshops.</p>
+                    <p>Anna har en mastergrad i psykologi og er sertifisert instruktør i flere pustemetoder. Hun kombinerer vitenskapelig kunnskap med praktisk erfaring for å gi deltakere verktøy de virkelig kan bruke.</p>
+                    <p>Hennes tilnærming er varm, engasjerende og praktisk orientert. Du vil forlate kurset med en følelse av klarhet og motivasjon til å ta dine nye ferdigheter i bruk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info">
+        <div class="container">
+            <h2>Kontakt oss</h2>
+            <div class="contact-content">
+                <p>Har du spørsmål om kurset eller ønsker du mer informasjon? Ta kontakt med oss, vi hjelper deg gjerne!</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4>📧 E-post</h4>
+                        <p><a href="mailto:kurs@uchange.no">kurs@uchange.no</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📞 Telefon</h4>
+                        <p><a href="tel:+4712345678">+47 123 45 678</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📍 Adresse</h4>
+                        <p>Nedre Slottsgate 1<br>0157 Oslo</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🌐 Nettside</h4>
+                        <p><a href="https://www.uchange.no">www.uchange.no</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="background: linear-gradient(135deg, var(--deep-blue) 0%, var(--deep-red) 100%); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <a href="#" class="btn-cta-secondary" style="font-size: 18px; padding: 18px 36px;">Meld på kurset - Selvledelse med bevisst pust</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
