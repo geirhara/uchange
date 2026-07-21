@@ -115,6 +115,33 @@
       font-size: 1.125rem;
     }
 
+    /* Intro (three-column) */
+    .section-intro { background: var(--brand-blue); color: #ffffff; }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .intro-text { text-align: left; }
+    .intro-text h3 {
+      color: #ffffff;
+      margin-bottom: .85rem;
+    }
+    .intro-text p {
+      color: rgba(255,255,255,.85);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      margin: 0 0 1.25rem;
+    }
+    .intro-text p:last-child { margin-bottom: 0; }
+    .intro-text strong { color: #ffffff; font-weight: 700; }
+    .intro-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* Sections */
     section { padding: 4.5rem 0; }
     .section-mint { background: var(--grey-light); }
@@ -216,6 +243,7 @@
     /* Responsive */
     @media (max-width: 820px) {
       .grid-3 { grid-template-columns: 1fr; }
+      .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero { padding: 2.5rem 0 3.5rem; }
       section { padding: 3rem 0; }
       .testimonial { padding: 1.75rem; }
@@ -243,6 +271,35 @@
         Fra ukonsentrert og stresset til autentisk og kraftfull ved hjelp av pusten. Lær å lede deg selv og andre med ro og klarhet.
       </p>
       <a href="#kontakt" class="btn btn-primary">Ta kontakt →</a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section-intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h3>Ta kontroll på din indre tilstand</h3>
+          <p>
+            For å prestere høyt eller lede andre må du først ha kontroll på din egen indre tilstand. Din pust er nøkkelen til å gå fra ukonsentrert og stresset til autentisk og kraftfull.
+          </p>
+          <p>
+            Oppnå økt oppmerksomhet, redusert stress og mer kraft i ditt liv og lederskap ved hjelp av bevisst pust. Et praktisk kurs for deg som ønsker å leve og lede med større tilstedeværelse.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img src="/image_Novac-Djokovic_no1-advice_transp.webp" alt="Novak Djokovic – råd fra verdens nummer én" />
+        </div>
+        <div class="intro-text">
+          <h3>Lær deg å regulere kroppen slik proffene gjør!</h3>
+          <p>
+            Dette praktiske kurset viser deg hvordan du tar kontroll over din indre tilstand, slik at du kan lede deg selv og andre med større ro, klarhet og autentisitet.
+          </p>
+          <p>
+            Du lærer å bruke bevisst pust som effektivt verktøy for å <strong>regulere</strong> nervesystemet, og optimere <strong>fokus</strong>, <strong>energi</strong> og <strong>oppmerksomhet</strong> i ditt liv og lederskap. Kapasiteter du kan lære deg på én dag – og ha glede av hele livet.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
