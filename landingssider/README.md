@@ -1,6 +1,6 @@
 # Landingssider for uChange
 
-Denne mappen inneholder alle kampanjelandinger under subdomenet `kampanje.uchange.no`.
+Denne mappen inneholder alle kampanjelandinger under subdomenet `gh.uchange.no`.
 
 ## Struktur
 
@@ -37,3 +37,4 @@ Referenser fra HTML-filer:
 ```html
 <img src="../assets/logo_GH-signatur_RED.png" alt="..." />
 ```
+Grafikk særskilt for den enkelte landingsside ligger i rot på mappen for kampanjen.
