@@ -23,6 +23,9 @@
 
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    [id] { scroll-margin-top: 90px; }
     body {
       font-family: 'Montserrat', system-ui, sans-serif;
       font-size: 16px;
@@ -463,7 +466,7 @@
   <header class="site-nav">
     <div class="nav-inner">
       <a href="/"><img src="../assets/logo_GH-signatur_RED.png" alt="Geir Hagberg | uChange AS" /></a>
-      <a href="mailto:kontakt@geirhagberg.no" class="btn btn-primary" target="_blank" rel="noopener" style="padding:.5rem 1.25rem;font-size:.9rem;">Søk om plass ↗</a>
+      <a href="#pamelding" class="btn btn-primary" style="padding:.5rem 1.25rem;font-size:.9rem;">Søk om plass ↓</a>
     </div>
   </header>
 
@@ -515,7 +518,7 @@
     <div class="container">
       <h2>Er dette gruppen for deg?</h2>
       <p>Det er plass til syv menn. Er du klar for å prioritere deg selv i syv uker – sammen med menn som vil det samme – så søk om en av plassene nå.</p>
-      <a href="mailto:kontakt@geirhagberg.no" class="btn btn-primary" target="_blank" rel="noopener">Søk om plass ↗</a>
+      <a href="#pamelding" class="btn btn-primary">Søk om plass ↓</a>
     </div>
   </section>
 
@@ -747,8 +750,8 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="kontakt" class="section-dark">
+  <!-- Påmeldingsskjema (bokmerke: #pamelding) -->
+  <section id="pamelding" class="section-dark">
     <div class="container">
       <div class="ml-embedded" data-form="DJVbNJ"></div>
       
