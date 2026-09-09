@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geir Hagberg | uChange AS</title>
-  <meta name="description" content="Gutta Lytter - en mastermind-gruppe for menn." />
+  <title>Gutta Lytter | Mastermind for menn | Geir Hagberg</title>
+  <meta name="description" content="Gutta Lytter – en mastermind-gruppe for menn som søker klarhet og handling. Syv menn, syv uker, dyp lytting og rått ærlige samtaler." />
   <link rel="icon" type="image/png" href="../assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,6 +115,82 @@
       color: var(--muted);
       font-size: 1.125rem;
     }
+    /* Hero subtitle */
+    .hero-sub {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      max-width: 660px;
+      margin: 0 auto 2.75rem;
+      font-size: clamp(1.0625rem, 2vw, 1.375rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    /* Hero video */
+    .video-frame {
+      position: relative;
+      padding-top: 56.25%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: var(--brand-blue-dark);
+      box-shadow: 0 18px 50px rgba(15,61,84,.18);
+    }
+    .video-frame iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    /* Hero facts */
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--grey-mid);
+      border-bottom: 1px solid var(--grey-mid);
+    }
+    .hero-facts .fact-label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .4rem;
+    }
+    .hero-facts .fact-value {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+    }
+    /* Hero intro text */
+    .hero-intro {
+      max-width: 760px;
+      margin: 3rem auto 0;
+      text-align: left;
+    }
+    .hero-intro p {
+      font-size: 1.1875rem;
+      line-height: 1.85;
+      color: var(--grey-dark);
+      margin: 0 0 1.6rem;
+    }
+    .hero-intro p:last-child { margin-bottom: 0; }
+    .hero-intro .intro-opening {
+      font-size: clamp(1.1875rem, 2.2vw, 1.375rem);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--brand-blue);
+      padding-left: 1.25rem;
+      border-left: 3px solid var(--brand-gold);
+    }
+    .hero-intro strong { color: var(--brand-blue); font-weight: 600; }
 
     /* Intro (three-column) */
     .section-intro { background: var(--brand-blue); color: #ffffff; }
@@ -362,6 +438,9 @@
       .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
       .instructor-box { flex-direction: column; text-align: center; padding: 2rem; }
       .hero { padding: 2.5rem 0 3.5rem; }
+      .hero-facts { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.25rem 0; }
+      .hero-intro { margin-top: 2.25rem; }
+      .hero-intro p { font-size: 1.0625rem; line-height: 1.8; margin-bottom: 1.35rem; }
       section { padding: 3rem 0; }
       .testimonial { padding: 1.75rem; }
     }
@@ -380,30 +459,58 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
+      <span class="pill">Mastermind for menn</span>
       <h1>Gutta Lytter</h1>
-      <h3>En mastermind-gruppe for menn som søker klarhet og handling</h3> 
-      <p></p>
+      <p class="hero-sub">En mastermind-gruppe for menn som søker klarhet og handling</p>
 
-      <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1223666519?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Gutta Lytter – Mastermind for menn"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-      
-      <p>
-        En gruppe på 7 menn møtes over 7 uker utenfor arbeidstid for å lytte, utfordre og støtte hverandre.
+      <div class="video-frame">
+        <iframe src="https://player.vimeo.com/video/1223666519?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Gutta Lytter – Mastermind for menn"></iframe>
+      </div>
 
-        Hensikten er å utvikle **klarhet**, **retning** og **kraft** til å leve et rikere og mer autentisk liv der du handler i tråd med ditt indre kompass.
+      <div class="hero-facts">
+        <div>
+          <span class="fact-label">Gruppen</span>
+          <span class="fact-value">7 menn</span>
+        </div>
+        <div>
+          <span class="fact-label">Varighet</span>
+          <span class="fact-value">7 uker</span>
+        </div>
+        <div>
+          <span class="fact-label">Samlinger</span>
+          <span class="fact-value">Utenfor arbeidstid</span>
+        </div>
+      </div>
 
-        For å bygge et sterkt fellesskap og oppnå resultater sammen bruker vi **dyp lytting, rått ærlige samtaler** og **felles ressurser** som verktøy for personlig vekst. 
-
-        Kursleder bidrar med struktur, daglig praksis og utvalgte øvelser som setter deg i kontakt med deg selv og de ressursene du trenger for å ta gode valg for ditt liv.
-      </p>
-      <p> 
-      </p>
-     
-      
-      <a href="https://uchange.hoopla.no/event/gh260910" class="btn btn-primary" target="_blank" rel="noopener">Se min videohilsen her</a>
+      <div class="hero-intro">
+        <p class="intro-opening">
+          En gruppe på 7 menn møtes over 7 uker utenfor arbeidstid for å lytte, utfordre og støtte hverandre.
+        </p>
+        <p>
+          Hensikten er å utvikle <strong>klarhet</strong>, <strong>retning</strong> og <strong>kraft</strong> til å leve et rikere og mer autentisk liv der du handler i tråd med ditt indre kompass.
+        </p>
+        <p>
+          For å bygge et sterkt fellesskap og oppnå resultater sammen bruker vi <strong>dyp lytting</strong>, <strong>rått ærlige samtaler</strong> og <strong>felles ressurser</strong> som verktøy for personlig vekst.
+        </p>
+        <p>
+          Kursleder bidrar med struktur, daglig praksis og utvalgte øvelser som setter deg i kontakt med deg selv og de ressursene du trenger for å ta gode valg for ditt liv.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Intro -->
+  <!-- CTA -->
+  <section id="sok" class="section-dark">
+    <div class="container">
+      <h2>Er dette gruppen for deg?</h2>
+      <p>Det er plass til syv menn. Er du klar for å prioritere deg selv i syv uker – sammen med menn som vil det samme – så søk om en av plassene nå.</p>
+      <a href="mailto:kontakt@geirhagberg.no" class="btn btn-primary" target="_blank" rel="noopener">Søk om plass ↗</a>
+    </div>
+  </section>
+
+  <!-- Intro: skjult inntil innholdet er skrevet for Gutta Lytter.
+       (Teksten under er arvet fra Bevisst pust-siden og bildet mangler i denne mappen.)
+  <div hidden>
   <section class="section-intro">
     <div class="container">
       <span class="pill">Introduksjon</span>
@@ -456,6 +563,9 @@
       </div>
     </div>
   </section>
+
+  </div>
+  -->
 
   <!-- Features -->
   <section class="section-mint">
@@ -658,6 +768,7 @@
     </div>
   </footer>
 
+  <script src="https://player.vimeo.com/api/player.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
