@@ -265,6 +265,142 @@
     }
     .benefits-list strong { color: #ffffff; font-weight: 600; }
 
+    /* Målgruppe ("Er dette deg?") – redaksjonell splitt med bilde */
+    .section-audience {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--grey-mid);
+      background:
+        radial-gradient(90% 70% at 88% 10%, rgba(212,160,111,.15), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #faf7f3 100%);
+    }
+    .section-audience::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: min(420px, 45%); height: 3px;
+      background: linear-gradient(90deg, var(--brand-gold), rgba(212,160,111,0));
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      grid-template-areas:
+        "figure header"
+        "figure body";
+      column-gap: 3.5rem;
+      row-gap: 1.25rem;
+      align-content: center;
+    }
+    .audience-header { grid-area: header; align-self: end; text-align: left; }
+    .audience-header h2 { margin-bottom: 0; }
+    .audience-figure { grid-area: figure; align-self: center; }
+    .audience-copy { grid-area: body; align-self: start; }
+    /* Bilde med forskjøvet merkevarepanel bak */
+    .audience-figure {
+      position: relative;
+      margin: 0;
+      isolation: isolate;
+    }
+    .audience-figure::before {
+      content: "";
+      position: absolute;
+      right: -1.25rem;
+      bottom: -1.25rem;
+      width: 58%; height: 58%;
+      border-radius: 1.25rem;
+      background: var(--brand-blue);
+      z-index: -1;
+    }
+    .audience-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 1.25rem;
+      box-shadow: 0 22px 55px rgba(15,61,84,.22);
+    }
+    .audience-figure figcaption {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 1.1rem;
+      max-width: calc(100% - 2.2rem);
+      padding: .5rem .95rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.93);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      font-size: .8rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--brand-blue);
+    }
+    .audience-copy { text-align: left; }
+    .audience-lead {
+      font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
+      line-height: 1.8;
+      color: var(--grey-dark);
+      margin-bottom: 1.85rem;
+    }
+    .audience-copy strong { color: var(--brand-blue); font-weight: 600; }
+    /* Gjenkjennelseslinjer – gullstrek i stedet for hakeliste */
+    .recognition-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.85rem;
+      display: grid;
+      gap: .95rem;
+    }
+    .recognition-list li {
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .recognition-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .8em;
+      width: 1.15rem; height: 2px;
+      border-radius: 2px;
+      background: var(--brand-gold);
+    }
+    .audience-outro {
+      color: var(--grey-dark);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      margin-bottom: 2.1rem;
+    }
+    .audience-quote {
+      margin: 0;
+      padding: 1.6rem 1.8rem;
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      border-left: 4px solid var(--brand-gold);
+      border-radius: 0 1.25rem 1.25rem 0;
+      box-shadow: 0 12px 34px rgba(15,61,84,.09);
+    }
+    .audience-quote .quote-kicker {
+      display: block;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-red);
+      margin-bottom: .65rem;
+    }
+    .audience-quote p {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.125rem, 1.9vw, 1.4375rem);
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--brand-blue);
+    }
+
     .pill {
       display: inline-block;
       padding: .35rem .8rem;
@@ -482,6 +618,15 @@
       .hero-intro p { font-size: 1.0625rem; line-height: 1.8; margin-bottom: 1.35rem; }
       .benefits-list li { padding: .95rem 0 .95rem 2.25rem; font-size: 1rem; }
       .benefits-list li::before { width: 1.5rem; }
+      .audience-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "figure" "body";
+        row-gap: 2rem;
+      }
+      .audience-figure { max-width: 420px; margin: 0 auto; }
+      .audience-figure::before { right: -.75rem; bottom: -.75rem; }
+      .audience-lead, .audience-outro, .recognition-list li { font-size: 1rem; }
+      .audience-quote { padding: 1.35rem 1.45rem; }
       section { padding: 3rem 0; }
       .testimonial { padding: 1.75rem; }
     }
@@ -548,6 +693,44 @@
         <p>
           Som kursleder bidrar jeg med <strong>struktur</strong>, <strong>daglig praksis</strong> og <strong>utvalgte øvelser</strong> som setter deg i kontakt med de ressursene du trenger for å ta gode valg for ditt liv.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Målgruppe: hvem gruppen er for -->
+  <section id="for-hvem" class="section-audience">
+    <div class="container">
+      <div class="audience-grid">
+        <header class="audience-header">
+          <span class="pill">Hvem er dette for?</span>
+          <h2>Er dette deg?</h2>
+        </header>
+
+        <figure class="audience-figure">
+          <img src="image_mann-ved-vinduet.webp" width="920" height="1150" loading="lazy" decoding="async"
+               alt="Mann i genser og jeans står ved vinduet i en vanlig leilighet og ser ettertenksomt ut." />
+          <figcaption>Ikke i krise. Bare ikke ferdig.</figcaption>
+        </figure>
+
+        <div class="audience-copy">
+          <p class="audience-lead">
+            Du har fått mye på plass. Jobben går, familien fungerer, huset står og kalenderen er full &ndash; og du leverer stort sett det du har sagt du skal. Utad er det meste på stell. Likevel er det noe som ligger og gnager: en anelse om at <strong>mer er mulig</strong>.
+          </p>
+          <ul class="recognition-list">
+            <li>Du er i rommet, men ikke alltid helt til stede hos dem du egentlig er der for.</li>
+            <li>Du vet stort sett hva som skal til. Det er avstanden mellom å vite og å gjøre som tapper deg.</li>
+            <li>Samtalene hjemme handler oftere om logistikk enn om liv.</li>
+            <li>Du reagerer raskere enn du vil, på folk du bryr deg om.</li>
+            <li>Du har mange rundt deg &ndash; og få du snakker med om det som faktisk betyr noe.</li>
+          </ul>
+          <p class="audience-outro">
+            Gutta Lytter er for deg som ikke er i krise, men som kjenner at du vil noe mer: <strong>mer tilstedeværelse og ekte kontakt</strong> med dine kjære, kolleger og venner &ndash; og som er villig til å gjøre jobben som skal til for å komme dit.
+          </p>
+          <blockquote class="audience-quote">
+            <span class="quote-kicker">Dette er en gruppe for</span>
+            <p>Menn som vil ha kontroll over sin indre tilstand, og søker klarhet til å handle i tråd med sitt indre kompass.</p>
+          </blockquote>
+        </div>
       </div>
     </div>
   </section>
