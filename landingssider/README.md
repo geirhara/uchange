@@ -38,3 +38,16 @@ Referenser fra HTML-filer:
 <img src="../assets/logo_GH-signatur_RED.png" alt="..." />
 ```
 Grafikk særskilt for den enkelte landingsside ligger i rot på mappen for kampanjen.
+
+## Forsiden (`index.html`) – lenken i Bio
+
+`landingssider/index.html` er forsiden på `gh.uchange.no` (Netlify publiserer mappen
+`landingssider/`). Siden er en enkel «link i bio»-side for sosiale medier.
+
+**Legge til en ny lenke:** åpne `index.html`, finn kommentarblokken «LENKER», kopier en
+hel `<a class="link-card">`-blokk, lim den inn der du vil ha den (øverst = mest klikk)
+og bytt ut adresse, tittel og undertekst. Rekkefølgen i koden er rekkefølgen på siden.
+
+- `class="link-card featured"` gir gullknappen som løfter frem det viktigste – bruk den på én lenke om gangen.
+- `<span class="lc-badge">` er merkelappen, f.eks. «Aktuelt nå». Slett linjen om den ikke skal vises.
+- Ikonene for sosiale medier ligger nederst i filen, med adressene i `href`.
