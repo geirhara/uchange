@@ -229,6 +229,42 @@
     .section-dark h2 { color: #ffffff; }
     .section-dark p  { color: rgba(255,255,255,.75); max-width: 640px; margin: 0 auto 2rem; }
 
+    /* Benefits (utbytte) – brand blue, left-aligned checklist */
+    .section-benefits { background: var(--brand-blue); color: #ffffff; }
+    .section-benefits .benefits-inner { max-width: 860px; margin: 0 auto; text-align: left; }
+    .section-benefits h2 { color: #ffffff; margin-bottom: .5rem; }
+    .section-benefits .pill {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.35);
+      color: #ffffff;
+    }
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.75rem 0 0;
+    }
+    .benefits-list li {
+      position: relative;
+      padding: 1.05rem 0 1.05rem 2.75rem;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.88);
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .benefits-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.16); }
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      width: 1.75rem;
+      text-align: center;
+      color: var(--brand-gold);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .benefits-list strong { color: #ffffff; font-weight: 600; }
+
     .pill {
       display: inline-block;
       padding: .35rem .8rem;
@@ -444,6 +480,8 @@
       .hero-facts { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.25rem 0; }
       .hero-intro { margin-top: 2.25rem; }
       .hero-intro p { font-size: 1.0625rem; line-height: 1.8; margin-bottom: 1.35rem; }
+      .benefits-list li { padding: .95rem 0 .95rem 2.25rem; font-size: 1rem; }
+      .benefits-list li::before { width: 1.5rem; }
       section { padding: 3rem 0; }
       .testimonial { padding: 1.75rem; }
     }
@@ -514,12 +552,20 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="sok" class="section-dark">
+  <!-- Utbytte: hva du får ut av å delta -->
+  <section id="utbytte" class="section-benefits">
     <div class="container">
-      <h2>Er dette gruppen for deg?</h2>
-      <p>Er du klar for å prioritere deg selv i 14 uker (7 samlinger) – sammen med menn som vil det samme – så søk om en av de få plassene nå.</p>
-      <a href="#pamelding" class="btn btn-primary">Søk om plass ↓</a>
+      <div class="benefits-inner">
+        <span class="pill">Ditt utbytte</span>
+        <h2>Hva du får ut av å delta:</h2>
+        <ul class="benefits-list">
+          <li>Du får <strong>fellesskap og støtte</strong> i din personlige vekst, samtidig som du blir utfordret og satt til ansvar for dine valg.</li>
+          <li>Du lærer <strong>virkelighetsnær praksis</strong> som setter deg i kontakt med dine ressurser og gir deg <strong>klarhet og kraft</strong> til handling i hverdagen.</li>
+          <li>Du trener på å <strong>ta ansvar</strong> for det som er ditt, og uttrykke det med <strong>indre ro</strong>.</li>
+          <li>Du trener på å <strong>lytte</strong> til deg selv, til andre mennesker, og til det som er viktig.</li>
+          <li>Du får gleden av å <strong>bidra</strong> til at dine «brødre» blir tydeligere, klokere og mer robuste i endring.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -587,7 +633,14 @@
     <div class="container">
       <span class="pill">Strukturen</span>
       <h2 style="max-width:640px;">Slik er det lagt opp</h2>
-      <p>Du får én innsiktssamtale på 45 minutter, én innledende workshop á 3,5 timer (samling 1), seks ordinære samlinger á 2,5 timer, invitasjon til avsluttende festmiddag og én oppfølgingssamtale på 45 minutter.</p> 
+      <p style="margin-bottom:.75rem;">Du får:</p>
+      <ul class="expect-list">
+        <li>Én <strong>innsiktssamtale</strong> på 45 minutter</li>
+        <li>Én innledende <strong>workshop</strong> á 3,5 timer (samling 1)</li>
+        <li>Seks ordinære <strong>samlinger</strong> á 2,5 timer</li>
+        <li>Invitasjon til avsluttende <strong>festmiddag</strong></li>
+        <li>Én <strong>oppfølgingssamtale</strong> på 45 minutter</li>
+      </ul>
       <p>Hele programmet er designet for at du skal få oppleve et støttende mannsfellesskap, guidede øvelser, refleksjon og dialog som setter deg i kontakt med dine ressurser og indre visdom.</p>
       <p>Du lærer også praksis som forankrer deg i kroppen, forsterker ditt fokus og forbedrer dine relasjoner. Dette er <strong>praksis som tåler hverdagen:</strong> <em>Kort. Enkel. Gjennomførbar.</em></p>
       <div class="grid-4">
@@ -663,6 +716,15 @@
       </div>
     </div>
   </section>  -->
+
+  <!-- CTA -->
+  <section id="sok" class="section-dark">
+    <div class="container">
+      <h2>Er dette gruppen for deg?</h2>
+      <p>Er du klar for å prioritere deg selv i 14 uker (7 samlinger) – sammen med menn som vil det samme – så søk om en av de få plassene nå.</p>
+      <a href="#pamelding" class="btn btn-primary">Søk om plass ↓</a>
+    </div>
+  </section>
 
   <!-- Praktisk informasjon -->
   <section class="section-practical">
