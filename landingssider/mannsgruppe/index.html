@@ -504,7 +504,7 @@
     }
     .practical-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
@@ -515,13 +515,100 @@
       padding: 1.75rem 2rem;
       backdrop-filter: blur(4px);
     }
+    .practical-card.card-wide { grid-column: 1 / -1; }
     .practical-card h3 { color: #fff; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem; }
     .practical-card p { margin: 0; font-size: 1.05rem; color: #fff; }
-    .practical-card.price-card p { margin-bottom: .5rem; }
-    .practical-card .note { font-size: .85rem; font-style: italic; color: rgba(255,255,255,.85); margin-top: .5rem; }
-    .price-tag { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,.25); padding-bottom: .5rem; margin-bottom: .5rem; }
-    .price-tag:last-of-type { border-bottom: none; }
-    .price-tag .amount { font-weight: 700; white-space: nowrap; }
+    .practical-card .note { font-size: .85rem; font-style: italic; color: rgba(255,255,255,.85); margin-top: .75rem; }
+
+    /* Program: dato + klokkeslett + hva det gjelder samlet i én liste */
+    .schedule {
+      list-style: none;
+      margin: 1.25rem 0 0;
+      padding: 0;
+    }
+    .schedule li {
+      display: grid;
+      grid-template-columns: 10.5rem 1fr auto;
+      grid-template-areas: "date label time";
+      align-items: center;
+      gap: .15rem 1.5rem;
+      padding: .8rem 0;
+      border-top: 1px solid rgba(255,255,255,.28);
+    }
+    .schedule li:first-child { border-top: none; padding-top: .25rem; }
+    .schedule li:last-child { padding-bottom: .25rem; }
+    .schedule .s-date {
+      grid-area: date;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .schedule .s-date .s-year {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.75);
+    }
+    .schedule .s-label { grid-area: label; color: #fff; font-size: 1rem; }
+    .schedule .s-label small {
+      display: block;
+      font-size: .8rem;
+      color: rgba(255,255,255,.85);
+    }
+    .schedule .s-time {
+      grid-area: time;
+      justify-self: end;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      background: rgba(255,255,255,.92);
+      border-radius: 999px;
+      padding: .3rem .85rem;
+    }
+    .schedule li.is-special .s-time { background: var(--brand-blue); color: #fff; }
+
+    /* Søknad og påmelding: lys boks som løfter seg fra den gylne bakgrunnen */
+    .practical-card.reassure-card {
+      background: rgba(255,255,255,.94);
+      border-color: rgba(255,255,255,.9);
+    }
+    .practical-card.reassure-card h3 { color: var(--brand-blue); }
+    .practical-card.reassure-card p { color: var(--grey-dark); max-width: 62ch; }
+    .practical-card.reassure-card strong { color: var(--brand-blue); }
+
+    /* Pris: early bird vs. ordinær */
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+    .price-tag:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .price-tag .price-label { display: block; font-size: .95rem; color: #fff; }
+    .price-tag .price-label small {
+      display: block;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+    }
+    .price-tag .amount {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      white-space: nowrap;
+      color: #fff;
+    }
+    .price-tag.is-early .amount { color: var(--brand-blue); }
+    .price-tag.is-regular .price-label,
+    .price-tag.is-regular .amount { color: rgba(255,255,255,.88); }
+    .price-tag.is-regular .amount { font-size: 1.15rem; }
 
     /* Expectations (results) section */
     .expect-list {
@@ -604,11 +691,25 @@
     .footer-inner a:hover { color: #ffffff; }
 
     /* Responsive */
+    @media (max-width: 1024px) {
+      .practical-card { padding: 1.5rem 1.5rem; }
+      .schedule li { grid-template-columns: 9.5rem 1fr auto; gap: .15rem 1rem; }
+    }
     @media (max-width: 820px) {
       .grid-3 { grid-template-columns: 1fr; }
       .grid-4 { grid-template-columns: 1fr; }
       .testimonial-grid { grid-template-columns: 1fr; }
       .practical-grid { grid-template-columns: 1fr; }
+      .practical-card { padding: 1.5rem 1.35rem; }
+      .schedule li {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "date time" "label label";
+        align-items: baseline;
+        gap: .25rem .75rem;
+      }
+      .schedule .s-date { font-size: 1.0625rem; }
+      .schedule .s-label { font-size: .95rem; }
+      .schedule .s-time { font-size: .85rem; padding: .25rem .7rem; }
       .expect-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
       .instructor-box { flex-direction: column; text-align: center; padding: 2rem; }
@@ -915,46 +1016,75 @@
       <span class="pill">Praktisk informasjon</span>
       <h2 style="max-width:640px;">Det du trenger å vite</h2>
       <div class="practical-grid">
-        <div class="practical-card">
-          <h3>Dato</h3>
-          <p>Samling 1 (workshop): Tir. 27. okt.</p>
-          <p>Samling 2: Tir. 10. nov. 2026</p>
-          <p>Samling 3: Tir. 24. nov. 2026</p>
-          <p>Samling 4: Tir. 8. des. 2026</p>
-          <p>Samling 5: Tir. 22. des. 2026</p>
-          <p>Samling 6: Tir. 5. jan. 2027</p>
-          <p>Samling 7: Tir. 19. jan. 2027</p>
-          <p>Festmiddag: Tir. 19. jan. 2027</p>
-        </div>
-        <div class="practical-card">
-          <h3>Tidspunkt</h3>
-          <p>Workshop: kl. 17.00 - 20.30</p>
-          <p>Samling 2-7: kl. 17.00 - 19.30</p>
-          <p>Festmiddag: kl. 20.00 - 21.30</p>
+        <div class="practical-card card-wide">
+          <h3>Program &ndash; datoer og klokkeslett</h3>
+          <ol class="schedule">
+            <li class="is-special">
+              <span class="s-date">27. okt. <span class="s-year">2026</span></span>
+              <span class="s-label">Samling 1 <small>Oppstartsworkshop</small></span>
+              <span class="s-time">17.00&ndash;20.30</span>
+            </li>
+            <li>
+              <span class="s-date">10. nov. <span class="s-year">2026</span></span>
+              <span class="s-label">Samling 2</span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li>
+              <span class="s-date">24. nov. <span class="s-year">2026</span></span>
+              <span class="s-label">Samling 3</span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li>
+              <span class="s-date">8. des. <span class="s-year">2026</span></span>
+              <span class="s-label">Samling 4</span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li>
+              <span class="s-date">5. jan. <span class="s-year">2027</span></span>
+              <span class="s-label">Samling 5 <small>f&oslash;rste samling etter julepausen</small></span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li>
+              <span class="s-date">19. jan. <span class="s-year">2027</span></span>
+              <span class="s-label">Samling 6</span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li>
+              <span class="s-date">2. feb. <span class="s-year">2027</span></span>
+              <span class="s-label">Samling 7</span>
+              <span class="s-time">17.00&ndash;19.30</span>
+            </li>
+            <li class="is-special">
+              <span class="s-date">2. feb. <span class="s-year">2027</span></span>
+              <span class="s-label">Festmiddag <small>samme kveld &ndash; frivillig, betales separat</small></span>
+              <span class="s-time">20.00&ndash;21.30</span>
+            </li>
+          </ol>
+          <p class="note">Alle samlinger er p&aring; tirsdager, annenhver uke &ndash; med julepause mellom samling 4 og 5.</p>
         </div>
         <div class="practical-card">
           <h3>Kurssted</h3>
-          <p>Sentralen, Øvre slottsgate 3, Oslo</p>
+          <p>Sentralen, &Oslash;vre slottsgate 3, Oslo</p>
         </div>
         <div class="practical-card">
           <h3>Antall plasser</h3>
           <p>Kun 6 deltagere for optimal opplevelse + 1 kursleder</p>
         </div>
-        <div class="practical-card">
-          <h3>Målgruppe</h3>
-          <p>Menn som vil ha kontroll over sin indre tilstand, og søker klarhet til å handle i tråd med sitt indre kompass.</p>
-        </div>
         <div class="practical-card price-card">
           <h3>Pris</h3>
-          <div class="price-tag">
-            <span>Spesialpris (pilot)</span>
+          <div class="price-tag is-early">
+            <span class="price-label">Early bird <small>t.o.m. 30. sept.</small></span>
+            <span class="amount">kr. 4.400,-</span>
+          </div>
+          <div class="price-tag is-regular">
+            <span class="price-label">Ordin&aelig;r pris</span>
             <span class="amount">kr. 4.900,-</span>
           </div>
-          <!-- div class="price-tag">
-            <span>Ordinær påmelding</span>
-            <span class="amount">kr. 2.995,-</span>
-          </div> -->
           <p class="note">inkl. materiell og pustemeditasjon (lydfil)</p>
+        </div>
+        <div class="practical-card card-wide reassure-card">
+          <h3>S&oslash;knad og p&aring;melding</h3>
+          <p>S&oslash;knaden er <strong>ikke bindende</strong> &ndash; den er kun en foresp&oslash;rsel om kontakt. Du trenger ikke bestemme deg for full deltagelse med betalingsforpliktelse f&oslash;r etter innsiktssamtalen.</p>
         </div>
       </div>
     </div>
