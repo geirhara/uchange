@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rom for Nærvær | Kveldssamling | Geir Hagberg</title>
+  <meta name="description" content="Rom for Nærvær – månedlige kveldssamlinger med meditasjon, dyp lytting og dialog. Møt deg selv og andre med større ro og tilstedeværelse." />
+  <link rel="icon" type="image/png" href="../assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-blue: #0F3D54;
+      --brand-blue-dark: #0a2b3c;
+      --brand-gold: #D4A06F;
+      --brand-red: #990000;
+      --grey-light: #F5F5F5;
+      --grey-mid: #e5e5e5;
+      --grey-dark: #333333;
+      --muted: #666666;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    [id] { scroll-margin-top: 90px; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--grey-dark);
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--brand-blue);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin: 0 0 1rem;
+    }
+    h1 { font-size: clamp(2.25rem, 4.5vw, 3.25rem); font-weight: 700; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; }
+    h3 { font-size: 1.25rem; font-weight: 600; }
+    p { margin: 0 0 1rem; }
+
+    a { color: var(--brand-red); text-decoration: none; transition: color .2s ease; }
+    a:hover { color: var(--brand-blue); }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background .2s, color .2s;
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--brand-gold); color: var(--brand-blue); }
+    .btn-primary:hover { background: #c58f5c; color: var(--brand-blue); }
+    .btn-outline { background: transparent; color: #ffffff; border-color: rgba(255,255,255,.6); }
+    .btn-outline:hover { background: #ffffff; color: var(--brand-blue); }
+
+    header.site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--grey-mid);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 1.5rem;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .nav-inner img { height: 42px; width: auto; }
+
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      background-color: var(--brand-blue-dark);
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,43,60,.55) 0%, rgba(10,43,60,.35) 45%, rgba(10,43,60,.65) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: 4rem 1.5rem;
+    }
+    .hero-content h1 { color: #ffffff; margin-bottom: .75rem; }
+    .hero-content .hero-sub {
+      font-size: clamp(1.0625rem, 2vw, 1.375rem);
+      color: rgba(255,255,255,.9);
+      margin: 0 auto 2rem;
+      max-width: 620px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: .35rem .8rem;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    section { padding: 4.5rem 0; }
+    .section-light { background: var(--grey-light); }
+    .section-dark { background: var(--brand-blue); color: #ffffff; text-align: center; }
+    .section-dark h2 { color: #ffffff; }
+    .section-dark p { color: rgba(255,255,255,.75); max-width: 640px; margin: 0 auto 2rem; }
+
+    .info-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+    }
+
+    .practical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .practical-card {
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      text-align: left;
+    }
+    .practical-card h3 {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .6rem;
+    }
+    .practical-card p { margin: 0; font-size: 1.05rem; }
+
+    footer.site-footer {
+      background: var(--brand-blue-dark);
+      color: rgba(255,255,255,.7);
+      padding: 2.5rem 0;
+      font-size: .875rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-inner img { height: 28px; }
+    .footer-inner a { color: rgba(255,255,255,.8); }
+    .footer-inner a:hover { color: #ffffff; }
+
+    @media (max-width: 820px) {
+      .hero { min-height: 70vh; }
+      .practical-grid { grid-template-columns: 1fr; }
+      section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="/"><img src="../assets/logo_GH-signatur_RED.png" alt="Geir Hagberg | uChange AS" /></a>
+      <a href="#pamelding" class="btn btn-primary" style="padding:.5rem 1.25rem;font-size:.9rem;">Meld deg på ↓</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img class="hero-img" src="image_hero.webp" alt="Rom for Nærvær" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Rom for Nærvær</h1>
+      <p class="hero-sub">Månedlige kveldssamlinger med meditasjon, dyp lytting og dialog &ndash; et pusterom i en travel hverdag.</p>
+      <a href="#pamelding" class="btn btn-primary">Meld deg på ↓</a>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <span class="pill">Om samlingene</span>
+      <h2 style="max-width:640px;">Et pusterom &ndash; for deg som vil ha mer nærvær i livet</h2>
+      <div class="info-text">
+        <p>
+          Rom for Nærvær er en åpen kveldssamling der vi tar oss tid til stillhet, bevisst pust og samtale. Vi bruker enkle øvelser for tilstedeværelse og dyp lytting, før vi deler refleksjoner i plenum.
+        </p>
+        <p>
+          Ingen forkunnskaper trengs. Du trenger ikke å «prestere» noe &ndash; bare komme som du er. Målet er at du går hjem mer hvilt, mer til stede og med større kontakt med deg selv og andre.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="praktisk">
+    <div class="container">
+      <span class="pill">Praktisk informasjon</span>
+      <h2 style="max-width:640px;">Tid, sted og påmelding</h2>
+      <div class="practical-grid">
+        <div class="practical-card">
+          <h3>Tid</h3>
+          <p>Forhåpentligvis hver måned, kl. 18.00&ndash;20.00</p>
+        </div>
+        <div class="practical-card">
+          <h3>Sted</h3>
+          <p>Sted opplyses her</p>
+        </div>
+        <div class="practical-card">
+          <h3>Påmelding</h3>
+          <p>Påmelding åpner snart &ndash; følg med!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pamelding" class="section-dark">
+    <div class="container">
+      <h2>Har du lyst til å bli varslet?</h2>
+      <p>Legg igjen e-posten din, så får du beskjed når neste samling er klar for påmelding.</p>
+      <a href="mailto:uchange@geirhagberg.no" class="btn btn-primary">Ta kontakt ↗</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="../assets/logo_GH-signatur_WHITE_low-res.gif" alt="Geir Hagberg | uChange AS" />
+      <div>
+        <a href="mailto:uchange@geirhagberg.no">uchange@geirhagberg.no</a>
+      </div>
+      <p style="margin:0;">© <span id="year"></span> Geir Hagberg | uChange AS</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
