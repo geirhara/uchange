@@ -192,6 +192,7 @@
     .section-dark h2 { color: #ffffff; }
     .section-dark p  { color: rgba(255,255,255,.8); max-width: 640px; margin: 0 auto 2rem; }
     .section-head { max-width: 680px; }
+    .section-head.is-wide { max-width: none; }
     .section-head p { color: var(--muted); font-size: 1.0625rem; }
 
     /* Tre samlinger – reisen */
@@ -494,6 +495,7 @@
       color: #fff;
     }
     .price-tag.is-early .amount { color: var(--brand-blue); }
+    .price-tag.is-expired .amount { text-decoration: line-through; opacity: .7; }
 
     /* Vertskap */
     .hosts-grid {
@@ -664,7 +666,7 @@
   <!-- Program: de tre samlingene -->
   <section id="program" class="section-mint">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head is-wide">
         <span class="pill">Programmet</span>
         <h2>Tre samlinger &ndash; én sammenhengende reise</h2>
       </div>
@@ -771,9 +773,9 @@
 
         <div class="practical-card">
           <h3>Pris</h3>
-          <div class="price-tag is-early">
-            <span class="price-label">Early-bird <small>t.o.m. 15. september</small></span>
-            <span class="amount">kr 1950</span>
+          <div class="price-tag is-early is-expired">
+            <span class="price-label">Early-bird <small>Fristen er utgått</small></span>
+            <span class="amount"><s>kr 1950</s></span>
           </div>
           <div class="price-tag is-regular">
             <span class="price-label">Full pris</span>
