@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rom for Nærvær | Kveldssamling | Geir Hagberg</title>
-  <meta name="description" content="Rom for Nærvær – månedlige kveldssamlinger med meditasjon, dyp lytting og dialog. Møt deg selv og andre med større ro og tilstedeværelse." />
+  <title>Rom for nærvær: Trygghet – Erkjennelse – Bevegelse | Arzanne De Vitre &amp; Geir Hagberg</title>
+  <meta name="description" content="Rom for nærvær – et kurs over tre samlinger i Drammen høsten 2026 for deg som vil erfare ro, klarhet og kontakt med deg selv og andre i trygge rammer." />
+  <meta property="og:title" content="Rom for nærvær: Trygghet – Erkjennelse – Bevegelse" />
+  <meta property="og:description" content="Et kurs over tre samlinger for deg som vil erfare ro, klarhet og kontakt med deg selv og andre i trygge rammer." />
+  <meta property="og:image" content="image_hero_rom-for-naervaer.jpg" />
   <link rel="icon" type="image/png" href="../assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --brand-blue: #0F3D54;
@@ -46,10 +49,20 @@
     h1 { font-size: clamp(2.25rem, 4.5vw, 3.25rem); font-weight: 700; }
     h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; }
     h3 { font-size: 1.25rem; font-weight: 600; }
-    p { margin: 0 0 1rem; }
+    p  { margin: 0 0 1rem; }
 
     a { color: var(--brand-red); text-decoration: none; transition: color .2s ease; }
     a:hover { color: var(--brand-blue); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
 
     .container {
       max-width: 1180px;
@@ -57,6 +70,7 @@
       padding: 0 1.5rem;
     }
 
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -67,14 +81,16 @@
       font-size: 1rem;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: background .2s, color .2s;
+      transition: background .2s, color .2s, border-color .2s, transform .2s;
       text-decoration: none;
+      font-family: inherit;
     }
     .btn-primary { background: var(--brand-gold); color: var(--brand-blue); }
-    .btn-primary:hover { background: #c58f5c; color: var(--brand-blue); }
+    .btn-primary:hover { background: #c58f5c; color: var(--brand-blue); transform: translateY(-1px); }
     .btn-outline { background: transparent; color: #ffffff; border-color: rgba(255,255,255,.6); }
     .btn-outline:hover { background: #ffffff; color: var(--brand-blue); }
 
+    /* Nav */
     header.site-nav {
       position: sticky;
       top: 0;
@@ -93,42 +109,6 @@
     }
     .nav-inner img { height: 42px; width: auto; }
 
-    .hero {
-      position: relative;
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #ffffff;
-      background-color: var(--brand-blue-dark);
-    }
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10,43,60,.55) 0%, rgba(10,43,60,.35) 45%, rgba(10,43,60,.65) 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      padding: 4rem 1.5rem;
-    }
-    .hero-content h1 { color: #ffffff; margin-bottom: .75rem; }
-    .hero-content .hero-sub {
-      font-size: clamp(1.0625rem, 2vw, 1.375rem);
-      color: rgba(255,255,255,.9);
-      margin: 0 auto 2rem;
-      max-width: 620px;
-    }
-
     .pill {
       display: inline-block;
       padding: .35rem .8rem;
@@ -143,19 +123,251 @@
       margin-bottom: 1.25rem;
     }
 
-    section { padding: 4.5rem 0; }
-    .section-light { background: var(--grey-light); }
-    .section-dark { background: var(--brand-blue); color: #ffffff; text-align: center; }
-    .section-dark h2 { color: #ffffff; }
-    .section-dark p { color: rgba(255,255,255,.75); max-width: 640px; margin: 0 auto 2rem; }
-
-    .info-text {
-      max-width: 700px;
+    /* Hero – bildet bærer selve tittelen, så det vises uten tekst oppå */
+    .hero {
+      padding: 3rem 0 4.5rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, rgba(212,160,111,.1), transparent 60%),
+        #ffffff;
+    }
+    .hero-frame {
+      max-width: 1040px;
       margin: 0 auto;
-      font-size: 1.0625rem;
-      line-height: 1.8;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: #4d9a78;
+      box-shadow: 0 22px 60px rgba(15,61,84,.2);
+    }
+    .hero-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1640 / 720;
+    }
+    .hero-sub {
+      max-width: 720px;
+      margin: 2.75rem auto 2rem;
+      font-size: clamp(1.125rem, 2.1vw, 1.375rem);
+      line-height: 1.6;
+      color: var(--brand-blue);
+      font-weight: 500;
+    }
+    .hero-sub em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+    }
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--grey-mid);
+      border-bottom: 1px solid var(--grey-mid);
+    }
+    .hero-facts .fact-label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .4rem;
+    }
+    .hero-facts .fact-value {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--brand-blue);
     }
 
+    /* Sections */
+    section { padding: 4.5rem 0; }
+    .section-mint { background: var(--grey-light); }
+    .section-dark { background: var(--brand-blue); color: #ffffff; text-align: center; }
+    .section-dark h2 { color: #ffffff; }
+    .section-dark p  { color: rgba(255,255,255,.8); max-width: 640px; margin: 0 auto 2rem; }
+    .section-head { max-width: 680px; }
+    .section-head p { color: var(--muted); font-size: 1.0625rem; }
+
+    /* Tre samlinger – reisen */
+    .journey {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 2.75rem;
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .journey::before {
+      content: "";
+      position: absolute;
+      top: 2.35rem;
+      left: 16%; right: 16%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(212,160,111,.2), var(--brand-gold), rgba(212,160,111,.2));
+    }
+    .journey-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.75rem 2rem;
+      text-align: center;
+      box-shadow: 0 12px 34px rgba(15,61,84,.06);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .journey-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(15,61,84,.12); }
+    .journey-num {
+      position: relative;
+      width: 3.25rem; height: 3.25rem;
+      margin: -.1rem auto 1.1rem;
+      border-radius: 999px;
+      background: var(--brand-blue);
+      color: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      box-shadow: 0 0 0 6px #F5F5F5;
+    }
+    .journey-date {
+      display: block;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-red);
+      margin-bottom: .6rem;
+    }
+    .journey-theme {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--brand-blue);
+      margin: 0 0 .5rem;
+    }
+    .journey-sub {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    .journey-note {
+      text-align: center;
+      margin: 2.25rem auto 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .journey-note strong { color: var(--brand-blue); }
+
+    /* Hva du får oppleve – blå, hakeliste */
+    .section-benefits { background: var(--brand-blue); color: #ffffff; }
+    .section-benefits .benefits-inner { max-width: 860px; margin: 0 auto; }
+    .section-benefits h2 { color: #ffffff; margin-bottom: .5rem; }
+    .section-benefits .pill {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.35);
+      color: #ffffff;
+    }
+    .benefits-list { list-style: none; padding: 0; margin: 1.75rem 0 0; }
+    .benefits-list li {
+      position: relative;
+      padding: 1.05rem 0 1.05rem 2.75rem;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.88);
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .benefits-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.16); }
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0; top: 1rem;
+      width: 1.75rem;
+      text-align: center;
+      color: var(--brand-gold);
+      font-weight: 700;
+    }
+
+    /* Hva vi gjør – redaksjonell splitt */
+    .section-practice {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(90% 70% at 88% 10%, rgba(212,160,111,.15), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #faf7f3 100%);
+    }
+    .section-practice::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: min(420px, 45%); height: 3px;
+      background: linear-gradient(90deg, var(--brand-gold), rgba(212,160,111,0));
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .practice-quote {
+      margin: 1.5rem 0 0;
+      padding: 1.6rem 1.8rem;
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      border-left: 4px solid var(--brand-gold);
+      border-radius: 0 1.25rem 1.25rem 0;
+      box-shadow: 0 12px 34px rgba(15,61,84,.09);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.125rem, 1.9vw, 1.35rem);
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--brand-blue);
+    }
+    .practice-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1.15rem;
+    }
+    .practice-list li {
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--grey-dark);
+    }
+    .practice-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: .85em;
+      width: 1.15rem; height: 2px;
+      border-radius: 2px;
+      background: var(--brand-gold);
+    }
+    .practice-list strong { color: var(--brand-blue); font-weight: 600; }
+
+    /* Praktisk informasjon – varm gulltone */
+    .section-practical {
+      background: linear-gradient(135deg, var(--brand-gold), #c58f5c);
+      color: #fff;
+    }
+    .section-practical h2 { color: #fff; }
+    .section-practical .pill {
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.4);
+      color: #fff;
+    }
     .practical-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -163,23 +375,202 @@
       margin-top: 2.5rem;
     }
     .practical-card {
-      background: #ffffff;
-      border: 1px solid var(--grey-mid);
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.3);
       border-radius: 1.25rem;
-      padding: 2rem;
-      text-align: left;
+      padding: 1.75rem 2rem;
+      backdrop-filter: blur(4px);
     }
+    .practical-card.card-wide { grid-column: 1 / -1; }
+    .practical-card.card-span-2 { grid-column: span 2; }
     .practical-card h3 {
       font-family: 'Montserrat', system-ui, sans-serif;
+      color: #fff;
       font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    .practical-card p { margin: 0 0 .5rem; font-size: 1.05rem; color: #fff; }
+    .practical-card p:last-child { margin-bottom: 0; }
+    .practical-card .note { font-size: .85rem; font-style: italic; color: rgba(255,255,255,.88); margin-top: .75rem; }
+    .practical-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+    .practical-card ul li { position: relative; padding-left: 1.5rem; color: #fff; }
+    .practical-card ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+      font-weight: 700;
+    }
+    .practical-card strong { font-weight: 700; }
+
+    /* Påmelding – lys boks som løfter seg fra gullbakgrunnen */
+    .signup-card {
+      background: rgba(255,255,255,.96);
+      border-color: rgba(255,255,255,.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 18px 50px rgba(15,61,84,.16);
+    }
+    .signup-card h3 { color: var(--brand-red); }
+    .signup-card p { color: var(--grey-dark); }
+    .signup-card .signup-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--brand-blue);
+      margin-bottom: .75rem;
+    }
+    .signup-card .signup-lead span { color: var(--brand-red); white-space: nowrap; }
+    .vipps-box {
+      background: var(--brand-blue);
+      color: #fff;
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      gap: .9rem;
+    }
+    .vipps-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding-bottom: .9rem;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .vipps-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .vipps-row .v-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+    .vipps-row .v-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: right;
+    }
+    .vipps-row .v-value.is-gold { color: var(--brand-gold); }
+    .copy-btn {
+      justify-self: start;
+      padding: .5rem 1.1rem;
+      font-size: .85rem;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      border-color: rgba(255,255,255,.4);
+    }
+    .copy-btn:hover { background: #fff; color: var(--brand-blue); }
+
+    /* Pris: early bird vs. full pris */
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+    .price-tag:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .price-tag .price-label { display: block; font-size: .95rem; color: #fff; }
+    .price-tag .price-label small {
+      display: block;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+    }
+    .price-tag .amount {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      white-space: nowrap;
+      color: #fff;
+    }
+    .price-tag.is-early .amount { color: var(--brand-blue); }
+
+    /* Vertskap */
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+    .host-card {
+      background: #ffffff;
+      border: 1px solid var(--grey-mid);
+      border-top: 4px solid var(--brand-gold);
+      border-radius: 1.25rem;
+      padding: 2.25rem 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .host-head {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.35rem;
+    }
+    /* Portretter hentet fra hero-bildet, så begge vises i samme lys og uttrykk */
+    .host-portrait {
+      flex-shrink: 0;
+      width: 112px; height: 112px;
+      border-radius: 999px;
+      background-color: #4d9a78;
+      background-image: url("image_hero_rom-for-naervaer.jpg");
+      background-repeat: no-repeat;
+      background-size: 530px auto;
+      box-shadow: 0 0 0 4px #ffffff, 0 0 0 5px var(--grey-mid);
+    }
+    .host-portrait.is-arzanne { background-position: -170px -95px; }
+    .host-portrait.is-geir    { background-position: -274px -84px; }
+    .host-head h3 { font-size: 1.5rem; margin: 0 0 .2rem; }
+    .host-role {
+      font-size: .72rem;
       font-weight: 600;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: .6rem;
     }
-    .practical-card p { margin: 0; font-size: 1.05rem; }
+    .host-card p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .host-card p strong { color: var(--brand-blue); font-weight: 600; }
+    .host-link {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--grey-mid);
+      font-size: .95rem;
+      font-weight: 600;
+    }
 
+    /* CTA-avslutning */
+    .cta-final { position: relative; overflow: hidden; }
+    .cta-final::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -60% -10%;
+      height: 120%;
+      background: radial-gradient(ellipse at center, rgba(212,160,111,.18), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-final .container { position: relative; z-index: 1; }
+    .cta-final h2 { font-size: clamp(2rem, 3.6vw, 2.75rem); }
+    .cta-final p { font-size: 1.125rem; line-height: 1.75; max-width: 680px; }
+    .cta-kicker {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--brand-gold);
+      margin-bottom: .75rem;
+    }
+
+    /* Footer */
     footer.site-footer {
       background: var(--brand-blue-dark);
       color: rgba(255,255,255,.7);
@@ -197,15 +588,39 @@
     .footer-inner a { color: rgba(255,255,255,.8); }
     .footer-inner a:hover { color: #ffffff; }
 
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .practical-card { padding: 1.5rem; }
+    }
     @media (max-width: 820px) {
-      .hero { min-height: 70vh; }
-      .practical-grid { grid-template-columns: 1fr; }
       section { padding: 3rem 0; }
+      .hero { padding: 1.5rem 0 3.5rem; }
+      .hero-frame { border-radius: 1rem; }
+      .hero-sub { margin-top: 2rem; }
+      .hero-facts { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.25rem 0; }
+      .journey { grid-template-columns: 1fr; gap: 1.25rem; }
+      .journey::before { top: 1.5rem; bottom: 1.5rem; left: 50%; right: auto; width: 2px; height: auto;
+        background: linear-gradient(180deg, rgba(212,160,111,.2), var(--brand-gold), rgba(212,160,111,.2)); }
+      .practice-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .practice-list li { font-size: 1rem; }
+      .benefits-list li { padding: .95rem 0 .95rem 2.25rem; font-size: 1rem; }
+      .benefits-list li::before { width: 1.5rem; }
+      .practical-grid { grid-template-columns: 1fr; }
+      .practical-card.card-span-2 { grid-column: auto; }
+      .practical-card { padding: 1.5rem 1.35rem; }
+      .signup-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      .hosts-grid { grid-template-columns: 1fr; }
+      .host-card { padding: 1.75rem 1.5rem; }
+    }
+    @media (max-width: 420px) {
+      .host-head { flex-direction: column; align-items: flex-start; }
+      .vipps-row .v-value { font-size: 1.15rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Nav -->
   <header class="site-nav">
     <div class="nav-inner">
       <a href="/"><img src="../assets/logo_GH-signatur_RED.png" alt="Geir Hagberg | uChange AS" /></a>
@@ -213,60 +628,248 @@
     </div>
   </header>
 
+  <!-- Hero: tittelen står i bildet, h1 er med for skjermlesere og søkemotorer -->
   <section class="hero">
-    <img class="hero-img" src="image_hero.webp" alt="Rom for Nærvær" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Rom for Nærvær</h1>
-      <p class="hero-sub">Månedlige kveldssamlinger med meditasjon, dyp lytting og dialog &ndash; et pusterom i en travel hverdag.</p>
+    <div class="container">
+      <span class="pill">Kursserie høsten 2026 &middot; Drammen</span>
+      <h1 class="sr-only">Rom for nærvær: Trygghet – Erkjennelse – Bevegelse</h1>
+
+      <div class="hero-frame">
+        <img src="image_hero_rom-for-naervaer.jpg" width="1640" height="720" fetchpriority="high"
+             alt="Rom for nærvær: Trygghet – Erkjennelse – Bevegelse. Arzanne De Vitre og Geir Hagberg smiler foran en grønn bakgrunn." />
+      </div>
+
+      <p class="hero-sub">
+        Et kurs over <em>tre samlinger</em> for deg som vil erfare ro, klarhet og kontakt med deg selv og andre i trygge rammer. Formålet er å støtte deg til å leve mer autentisk.
+      </p>
+      <a href="#pamelding" class="btn btn-primary">Meld deg på ↓</a>
+
+      <div class="hero-facts">
+        <div>
+          <span class="fact-label">Når</span>
+          <span class="fact-value">15.&nbsp;okt. &middot; 19.&nbsp;nov. &middot; 1.&nbsp;des.</span>
+        </div>
+        <div>
+          <span class="fact-label">Tid</span>
+          <span class="fact-value">kl. 18:00&ndash;21:00</span>
+        </div>
+        <div>
+          <span class="fact-label">Sted</span>
+          <span class="fact-value">Aquarius, Drammen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program: de tre samlingene -->
+  <section id="program" class="section-mint">
+    <div class="container">
+      <div class="section-head">
+        <span class="pill">Programmet</span>
+        <h2>Tre samlinger &ndash; én sammenhengende reise</h2>
+      </div>
+      <ol class="journey">
+        <li class="journey-card">
+          <div class="journey-num">1</div>
+          <span class="journey-date">Torsdag 15. oktober</span>
+          <p class="journey-theme">TRYGGHET</p>
+          <p class="journey-sub">I tilstedeværelse</p>
+        </li>
+        <li class="journey-card">
+          <div class="journey-num">2</div>
+          <span class="journey-date">Torsdag 19. november</span>
+          <p class="journey-theme">ERKJENNELSE</p>
+          <p class="journey-sub">Ingen endring uten erkjennelse</p>
+        </li>
+        <li class="journey-card">
+          <div class="journey-num">3</div>
+          <span class="journey-date">Tirsdag 1. desember</span>
+          <p class="journey-theme">BEVEGELSE</p>
+          <p class="journey-sub">Fra fastlåst til fri</p>
+        </li>
+      </ol>
+      <p class="journey-note">Alle samlinger: <strong>kl. 18:00&ndash;21:00</strong> (dørene åpnes 17:30)</p>
+    </div>
+  </section>
+
+  <!-- Hva du får oppleve -->
+  <section id="utbytte" class="section-benefits">
+    <div class="container">
+      <div class="benefits-inner">
+        <span class="pill">Ditt utbytte</span>
+        <h2>Hva du får oppleve</h2>
+        <ul class="benefits-list">
+          <li>Enkle og kraftfulle verktøy for å leve mer autentisk</li>
+          <li>En fasilitert prosess for selvutvikling gjennom praktiske øvelser, refleksjon og dialog</li>
+          <li>Et støttende fellesskap for næring og vekst</li>
+          <li>En fast, trygg gruppe som utvikler seg over tid</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hva vi gjør på Rom for nærvær -->
+  <section id="hva-vi-gjor" class="section-practice">
+    <div class="container">
+      <div class="practice-grid">
+        <div>
+          <span class="pill">Slik jobber vi</span>
+          <h2>Hva vi gjør på Rom for nærvær</h2>
+          <blockquote class="practice-quote">
+            Trygghet &ndash; Erkjennelse &ndash; Bevegelse
+          </blockquote>
+        </div>
+        <ul class="practice-list">
+          <li>Vi <strong>utforsker</strong> vår egen tilstedeværelse innover og utover i møte med hverandre og verden.</li>
+          <li>Vi <strong>møter</strong> det som er i øyeblikket med ærlighet og et oppriktig ønske om å erkjenne det som faktisk lever i oss.</li>
+          <li>Vi <strong>lytter</strong> til flere perspektiver og uttrykker våre egne i trygge rammer.</li>
+          <li>Vi <strong>tillater</strong> det som er autentisk å bevege oss og skape endring.</li>
+          <li>Vi <strong>møter opp</strong> alle 3 gangene for å holde gruppa stabil og trygg.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-dark">
+    <div class="container">
+      <h2>Gi deg selv denne gaven av nærvær</h2>
+      <p>Bli med oss på denne kursserien der du kan lande, puste og kjenne verdien av å være påkoblet &ndash; både i deg selv og i fellesskapet.</p>
       <a href="#pamelding" class="btn btn-primary">Meld deg på ↓</a>
     </div>
   </section>
 
-  <section class="section-light">
+  <!-- Praktisk informasjon og påmelding (bokmerke: #pamelding) -->
+  <section id="pamelding" class="section-practical">
     <div class="container">
-      <span class="pill">Om samlingene</span>
-      <h2 style="max-width:640px;">Et pusterom &ndash; for deg som vil ha mer nærvær i livet</h2>
-      <div class="info-text">
-        <p>
-          Rom for Nærvær er en åpen kveldssamling der vi tar oss tid til stillhet, bevisst pust og samtale. Vi bruker enkle øvelser for tilstedeværelse og dyp lytting, før vi deler refleksjoner i plenum.
-        </p>
-        <p>
-          Ingen forkunnskaper trengs. Du trenger ikke å «prestere» noe &ndash; bare komme som du er. Målet er at du går hjem mer hvilt, mer til stede og med større kontakt med deg selv og andre.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="praktisk">
-    <div class="container">
-      <span class="pill">Praktisk informasjon</span>
-      <h2 style="max-width:640px;">Tid, sted og påmelding</h2>
+      <span class="pill">Påmelding og praktisk informasjon</span>
+      <h2 style="max-width:640px;">Det du trenger å vite</h2>
       <div class="practical-grid">
+
+        <div class="practical-card card-wide signup-card">
+          <div>
+            <h3>Påmelding</h3>
+            <p class="signup-lead">Du melder deg på ved å vippse beløpet til <span>#28368</span></p>
+            <p>Merk betalingen med teksten <strong>«RFN»</strong>. Mottaker er <strong>Resonance by Arzanne De Vitre</strong>.</p>
+          </div>
+          <div class="vipps-box">
+            <div class="vipps-row">
+              <span class="v-label">Vipps til</span>
+              <span class="v-value is-gold">#28368</span>
+            </div>
+            <div class="vipps-row">
+              <span class="v-label">Melding</span>
+              <span class="v-value">RFN</span>
+            </div>
+            <div class="vipps-row">
+              <span class="v-label">Mottaker</span>
+              <span class="v-value" style="font-size:1rem;">Resonance by Arzanne De Vitre</span>
+            </div>
+            <button type="button" class="btn copy-btn" data-copy="28368">Kopier Vipps-nummer</button>
+          </div>
+        </div>
+
+        <div class="practical-card">
+          <h3>Pris</h3>
+          <div class="price-tag is-early">
+            <span class="price-label">Early-bird <small>t.o.m. 15. september</small></span>
+            <span class="amount">kr 1950</span>
+          </div>
+          <div class="price-tag is-regular">
+            <span class="price-label">Full pris</span>
+            <span class="amount">kr 2450</span>
+          </div>
+        </div>
+
         <div class="practical-card">
           <h3>Tid</h3>
-          <p>Forhåpentligvis hver måned, kl. 18.00&ndash;20.00</p>
+          <p><strong>kl. 18:00&ndash;21:00</strong></p>
+          <p class="note">Dørene åpnes 17:30</p>
         </div>
+
         <div class="practical-card">
           <h3>Sted</h3>
-          <p>Sted opplyses her</p>
+          <p><strong>Aquarius Studie Senter</strong><br />Engene 14, 3015 Drammen</p>
+          <p class="note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Engene+14,+3015+Drammen" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Vis i kart ↗</a></p>
         </div>
+
+        <div class="practical-card card-span-2">
+          <h3>Viktig informasjon</h3>
+          <ul>
+            <li><strong>Mobilfri sone:</strong> Vi ber alle slå av telefonen for å skape et rom med full tilstedeværelse.</li>
+            <li><strong>Servering:</strong> Te / kaffe og frukt. (Aquarius er et vegetarisk senter &ndash; ingen kjøttprodukter tillatt.)</li>
+          </ul>
+        </div>
+
         <div class="practical-card">
-          <h3>Påmelding</h3>
-          <p>Påmelding åpner snart &ndash; følg med!</p>
+          <h3>Fint å ha med</h3>
+          <ul>
+            <li>Komfortable klær</li>
+            <li>Skrivesaker</li>
+            <li>Drikkeflaske</li>
+          </ul>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section id="pamelding" class="section-dark">
+  <!-- Vertskap for kurset -->
+  <section id="vertskap">
     <div class="container">
-      <h2>Har du lyst til å bli varslet?</h2>
-      <p>Legg igjen e-posten din, så får du beskjed når neste samling er klar for påmelding.</p>
-      <a href="mailto:uchange@geirhagberg.no" class="btn btn-primary">Ta kontakt ↗</a>
+      <div class="section-head">
+        <span class="pill">Vertskap for kurset</span>
+        <h2>Møt Arzanne og Geir</h2>
+      </div>
+      <div class="hosts-grid">
+        <article class="host-card">
+          <div class="host-head">
+            <div class="host-portrait is-arzanne" role="img" aria-label="Portrett av Arzanne De Vitre"></div>
+            <div>
+              <h3>Arzanne De Vitre</h3>
+              <span class="host-role">Poet &middot; Kulturformidler &middot; Brobygger</span>
+            </div>
+          </div>
+          <p>
+            <strong>Arzanne De Vitre</strong> er poet, kulturformidler, brobygger og dialogentusiast. Alt hun driver med har utgangspunktet i ønsket om å skape autentiske møter mellom mennesker, der vi kan se hverandre fra hjertet og vokse av å lytte til forskjellige perspektiver.
+          </p>
+          <p>
+            Gjennom sitt foretak, Resonance, ønsker hun nettopp å skape resonans &ndash; i deg og i utvikling av nærende fellesskap. Hun har nylig utgitt en diktsamling <em>Broer // Bridges</em> og utdanner seg til å bli Biodanza fasilitator.
+          </p>
+          <p class="host-link">Les mer om <em>Broer // Bridges</em> her: <a href="https://www.arzanne.com" target="_blank" rel="noopener">www.arzanne.com ↗</a></p>
+        </article>
+
+        <article class="host-card">
+          <div class="host-head">
+            <div class="host-portrait is-geir" role="img" aria-label="Portrett av Geir Hagberg"></div>
+            <div>
+              <h3>Geir Hagberg</h3>
+              <span class="host-role">Kursholder &middot; Fasilitator &middot; Coach</span>
+            </div>
+          </div>
+          <p>
+            <strong>Geir Hagberg</strong> har jobbet med pust, bevisst tilstedeværelse og dialog i over 15 år. Han er grunnlegger av uChange AS og med-grunnlegger av bl.a. Dialog i Praksis og nettverket Regenerative Pådrivere. Han jobber også selvstendig som kursholder, fasilitator og coach for organisasjoner og næringsliv.
+          </p>
+          <p>
+            Geir er pappa til to tenåringsgutter, andelsbonde på Dysterjordet andelslandbruk og en aktiv pådriver for et kollektivt bevissthetsskifte.
+          </p>
+          <p class="host-link">Nettside: <a href="https://gh.uchange.no" target="_blank" rel="noopener">gh.uchange.no ↗</a></p>
+        </article>
+      </div>
     </div>
   </section>
 
+  <!-- Avsluttende CTA -->
+  <section class="section-dark cta-final">
+    <div class="container">
+      <span class="cta-kicker">Trygghet &ndash; Erkjennelse &ndash; Bevegelse</span>
+      <h2>Gi deg selv denne gaven av nærvær</h2>
+      <p>Bli med oss på denne kursserien der du kan lande, puste og kjenne verdien av å være påkoblet &ndash; både i deg selv og i fellesskapet.</p>
+      <a href="#pamelding" class="btn btn-primary">Sikre din plass ↑</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <img src="../assets/logo_GH-signatur_WHITE_low-res.gif" alt="Geir Hagberg | uChange AS" />
@@ -277,6 +880,17 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var label = btn.textContent;
+        navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+          btn.textContent = 'Kopiert ✓';
+          setTimeout(function () { btn.textContent = label; }, 2000);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
